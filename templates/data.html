@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for info in info %}
+        {{info.manufacturer_name}}
+        {{info.vehicle_model}}
+        {{info.vehicle_year}}
+        {{info.vehicle_hp}}
+        {{info.engine_size}}
+        {{vin_number}}
+    {% endfor %}
+
+{% endblock %}
