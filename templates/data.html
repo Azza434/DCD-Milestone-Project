@@ -1,34 +1,43 @@
+<!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
-
-{% endfor %}
-<div class="row ">
-    {% for info in info %}
-	<table>
-		<thead>
-            <div class="row">
-			    <tr>
-				    <th>Manufacturer Name</th>
-				    <th>Vehicle Model</th>
-				    <th>Vehicle Year</th>
-                    <th>Vehicle Horse Power</th>
-                    <th>Engine Size</th>
-                    <th>VIN Number</th>
-			    </tr>
-            </div>
-		</thead>
-
-		<tbody>
-            <div class="row">
-                <tr>
-                    <td>{{info.manufacturer_name}}</td>
-				    <td>{{info.vehicle_model}}</td>
-				    <td>{{info.vehicle_year}}</td>
-                    <td>{{info.vehicle_hp}}</td>
-                    <td>{{info.engine_size}}</td>
-                    <td>{{vin_number}}</td>
-                </tr>
-            </div>
-		</tbody>
-	</table>
+<div class="row">
+	<div class="row responsive-table">
+		<div class="striped">
+			<table class="highlight centered">
+				<thead class="thead-light text-center">
+					<tr>
+						<th class="text-center">Manufacturer Name</th>
+						<th class="text-center">Vehicle Model</th>
+						<th class="text-center">Vehicle Year</th>
+						<th class="text-center">Vehicle Horse Power</th>
+						<th class="text-center">Engine Size</th>
+						<th class="text-center">Reg Number</th>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for info in info %}
+					<tr>
+						<td> {{info.manufacturer_name}} </td>
+						<td> {{info.vehicle_model}} </td>
+						<td> {{info.vehicle_year}} </td>
+						<td> {{info.vehicle_hp}} </td>
+						<td> {{info.engine_size}} </td>
+						<td> {{info.reg_number}} </td>
+						<td class="row">
+							<a href="{{url_for('edit_info', info_id=info._id)}}"
+								class="btn-floating btn-small cyan"><i class="material-icons">edit</i></a>
+						</td>
+						<td class="row">
+							<a href="{{url_for('delete_info', info_id=info._id)}}"
+								class="btn-floating btn-small red"><i class="material-icons">delete</i></a>
+						</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
 </div>
 {% endblock %}
