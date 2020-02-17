@@ -1,12 +1,34 @@
-{% extends 'base.html' %}
-{% block content %}
-    {% for info in info %}
-        {{info.manufacturer_name}}
-        {{info.vehicle_model}}
-        {{info.vehicle_year}}
-        {{info.vehicle_hp}}
-        {{info.engine_size}}
-        {{vin_number}}
-    {% endfor %}
+{% extends 'base.html' %} {% block content %}
 
+{% endfor %}
+<div class="row ">
+    {% for info in info %}
+	<table>
+		<thead>
+            <div class="row">
+			    <tr>
+				    <th>Manufacturer Name</th>
+				    <th>Vehicle Model</th>
+				    <th>Vehicle Year</th>
+                    <th>Vehicle Horse Power</th>
+                    <th>Engine Size</th>
+                    <th>VIN Number</th>
+			    </tr>
+            </div>
+		</thead>
+
+		<tbody>
+            <div class="row">
+                <tr>
+                    <td>{{info.manufacturer_name}}</td>
+				    <td>{{info.vehicle_model}}</td>
+				    <td>{{info.vehicle_year}}</td>
+                    <td>{{info.vehicle_hp}}</td>
+                    <td>{{info.engine_size}}</td>
+                    <td>{{vin_number}}</td>
+                </tr>
+            </div>
+		</tbody>
+	</table>
+</div>
 {% endblock %}
