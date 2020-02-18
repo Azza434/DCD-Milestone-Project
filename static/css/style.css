@@ -23,3 +23,11 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+.sort {
+    cursor: pointer;
+}
+
+span {
+    color: red;
+}
