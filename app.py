@@ -14,18 +14,21 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 mongo = PyMongo(app)
 
 
+#-----------------------------Initial Webpage------------------------
 @app.route('/')
 @app.route('/get_data')
 def get_data():
     return render_template("data.html", info=mongo.db.info.find())
 
 
+#-----------------------------Add Info-------------------------------
 @app.route('/add_info')
 def add_info():
     return render_template('addinfo.html',
                            manufacturer=mongo.db.manufacturer.find())
 
 
+#-----------------------------Insert Info----------------------------
 @app.route('/insert_info', methods=['POST'])
 def insert_info():
     info = mongo.db.info
@@ -33,6 +36,7 @@ def insert_info():
     return redirect(url_for('get_data'))
 
 
+#-----------------------------Edit Info------------------------------
 @app.route('/edit_info/<info_id>')
 def edit_info(info_id):
     the_info = mongo.db.info.find_one({"_id": ObjectId(info_id)})
@@ -41,6 +45,7 @@ def edit_info(info_id):
                            manufacturer=all_manufacturer)
 
 
+#-----------------------------Update Info----------------------------
 @app.route('/update_info/<info_id>', methods=["POST"])
 def update_info(info_id):
     info = mongo.db.info
@@ -56,18 +61,21 @@ def update_info(info_id):
     return redirect(url_for('get_data'))
 
 
+#-----------------------------Delete Info---------------------------
 @app.route('/delete_info/<info_id>')
 def delete_info(info_id):
     mongo.db.info.remove({'_id': ObjectId(info_id)})
     return redirect(url_for('get_data'))
 
 
+#-----------------------------Get Manufacturer----------------------
 @app.route('/get_manufacturer')
 def get_manufacturer():
     return render_template('manufacturer.html',
                            manufacturer=mongo.db.manufacturer.find())
 
 
+#-----------------------------Edit Manufacturer---------------------
 @app.route('/edit_manufacturer/<manufacturer_id>')
 def edit_manufacturer(manufacturer_id):
     return render_template('editmanufacturer.html',
@@ -75,6 +83,7 @@ def edit_manufacturer(manufacturer_id):
                                {'_id': ObjectId(manufacturer_id)}))
 
 
+#-----------------------------Update Manufacturer-------------------
 @app.route('/update_manufacturer/<manufacturer_id>', methods=['POST'])
 def update_manufacturer(manufacturer_id):
     mongo.db.manufacturer.update(
@@ -83,12 +92,14 @@ def update_manufacturer(manufacturer_id):
     return redirect(url_for('get_manufacturer'))
 
 
+#-----------------------------Delete Manufacturer-------------------
 @app.route('/delete_manufacturer/<manufacturer_id>')
 def delete_manufacturer(manufacturer_id):
     mongo.db.manufacturer.remove({'_id': ObjectId(manufacturer_id)})
     return redirect(url_for('get_manufacturer'))
 
 
+#-----------------------------Insert Manufacturer-------------------
 @app.route('/insert_manufacturer', methods=['POST'])
 def insert_manufacturer():
     manufacturer_doc = {
@@ -97,6 +108,7 @@ def insert_manufacturer():
     return redirect(url_for('get_manufacturer'))
 
 
+#-----------------------------Add Manufacturer----------------------
 @app.route('/add_manufacturer')
 def add_manufacturer():
     return render_template('addmanufacturer.html')
