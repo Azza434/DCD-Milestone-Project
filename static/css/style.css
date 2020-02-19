@@ -29,7 +29,7 @@ main {
 }
 
 span {
-    color: red;
+    color:#607d8b;
 }
 
 div.pager {
@@ -43,14 +43,18 @@ div.pager span {
     line-height: 1.8;
     text-align: center;
     cursor: pointer;
-    background: #191919;
-    color: #ccc;
+    background: rgb(255, 255, 255);
+    color: rgba(0,0,0,0.87);
     margin-right: 0.5em;
 }
 
 div.pager span.active {
-    background: #fff;
-    color:#191919;
-    font-weight:bold;
-    text-align:center;
+    background: #ffffff;
+    color: #0089ec;
+    font-weight: bold;
+    text-align: center;
+}
+
+.searchBar {
+    width: 50%;
 }

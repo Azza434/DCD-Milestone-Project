@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
 <br>
-<input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for vehicle">
+<input class="searchBar" type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for vehicle">
 <div class="row">
 	<div class="row responsive-table">
 		<div class="striped">
 			<table id="myTable" class="highlight centered paginated">
 				<thead class="thead-light text-center">
 					<tr>
-						<th class="text-center sort" onclick="sortTable(0)">Manufacturer Name <span>*</span></th>
-						<th class="text-center sort" onclick="sortTable(1)">Vehicle Model <span>*</span></th>
-						<th class="text-center sort" onclick="sortTable(2)">Vehicle Year <span>*</span></th>
-						<th class="text-center sort" onclick="sortTable(3)">Vehicle Horse Power <span>*</span></th>
-						<th class="text-center sort" onclick="sortTable(4)">Engine Size <span>*</span></th>
-						<th class="text-center sort" onclick="sortTable(5)">Reg Number <span>*</span></th>
-						<th class="text-center">Edit</th>
+						<th class="text-center sort" onclick="sortTable(0)">Manufacturer Name <span>&#x1D306</span></th>
+						<th class="text-center sort" onclick="sortTable(1)">Vehicle Model <span>&#x1D306</span></th>
+						<th class="text-center sort" onclick="sortTable(2)">Vehicle Year <span>&#x1D306</span></th>
+						<th class="text-center sort" onclick="sortTable(3)">Vehicle Horse Power <span>&#x1D306</span></th>
+						<th class="text-center sort" onclick="sortTable(4)">Engine Size <span>&#x1D306</span></th>
+						<th class="text-center sort" onclick="sortTable(5)">Reg Number <span>&#x1D306</span></th>
+                        <th class="text-center">Edit</th>
 						<th class="text-center">Delete</th>
 					</tr>
 				</thead>
@@ -24,12 +24,12 @@
 						<td> {{info.manufacturer_name}} </td>
 						<td> {{info.vehicle_model}} </td>
 						<td> {{info.vehicle_year}} </td>
-						<td> {{info.vehicle_hp}} </td>
+						<td> {{info.vehicle_hp}} bhp</td>
 						<td> {{info.engine_size}} </td>
 						<td> {{info.reg_number}} </td>
 						<td class="row">
 							<a href="{{url_for('edit_info', info_id=info._id)}}"
-								class="btn-floating btn-small cyan"><i class="material-icons">edit</i></a>
+								class="btn-floating btn-small blue"><i class="material-icons">edit</i></a>
 						</td>
 						<td class="row">
 							<a href="{{url_for('delete_info', info_id=info._id)}}"
