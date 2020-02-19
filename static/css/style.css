@@ -1,7 +1,9 @@
+/*--------Navbar*/
 nav .brand-logo {
     margin-left: 10px;
 }
 
+/*--------Navbar*/
 .btn_small {
     height: 24px;
     width: 60px;
@@ -24,6 +26,7 @@ main {
     flex: 1 0 auto;
 }
 
+/*--------Header Sorting*/
 .sort {
     cursor: pointer;
 }
@@ -32,6 +35,7 @@ span {
     color:#607d8b;
 }
 
+/*--------Pagenation*/
 div.pager {
     text-align: center; 
 }
@@ -55,6 +59,7 @@ div.pager span.active {
     text-align: center;
 }
 
+/*--------Search Bar*/
 .searchBar {
     width: 50%;
 }
