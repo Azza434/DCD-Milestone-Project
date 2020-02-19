@@ -31,3 +31,26 @@ main {
 span {
     color: red;
 }
+
+div.pager {
+    text-align: center; 
+}
+
+div.pager span {
+    display: inline-block;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1.8;
+    text-align: center;
+    cursor: pointer;
+    background: #191919;
+    color: #ccc;
+    margin-right: 0.5em;
+}
+
+div.pager span.active {
+    background: #fff;
+    color:#191919;
+    font-weight:bold;
+    text-align:center;
+}

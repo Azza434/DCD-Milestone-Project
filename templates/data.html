@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
+<br>
 <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for vehicle">
 <div class="row">
 	<div class="row responsive-table">
 		<div class="striped">
-			<table id="myTable" class="highlight centered">
+			<table id="myTable" class="highlight centered paginated">
 				<thead class="thead-light text-center">
 					<tr>
 						<th class="text-center sort" onclick="sortTable(0)">Manufacturer Name <span>*</span></th>
