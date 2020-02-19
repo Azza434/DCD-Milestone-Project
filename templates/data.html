@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for vehicle">
+<input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for vehicle">
 <div class="row">
 	<div class="row responsive-table">
 		<div class="striped">
 			<table id="myTable" class="highlight centered">
 				<thead class="thead-light text-center">
 					<tr>
-						<th class="text-center sort" onclick="sortTable(0)">Manufacturer Name<span>*</span></th>
-						<th class="text-center sort" onclick="sortTable(1)">Vehicle Model<span>*</span></th>
-						<th class="text-center sort" onclick="sortTable(2)">Vehicle Year<span>*</span></th>
-						<th class="text-center sort" onclick="sortTable(3)">Vehicle Horse Power<span>*</span></th>
-						<th class="text-center sort" onclick="sortTable(4)">Engine Size<span>*</span></th>
-						<th class="text-center sort" onclick="sortTable(5)">Reg Number<span>*</span></th>
-                        <th class="text-center">Edit</th>
-                        <th class="text-center">Delete</th>
+						<th class="text-center sort" onclick="sortTable(0)">Manufacturer Name <span>*</span></th>
+						<th class="text-center sort" onclick="sortTable(1)">Vehicle Model <span>*</span></th>
+						<th class="text-center sort" onclick="sortTable(2)">Vehicle Year <span>*</span></th>
+						<th class="text-center sort" onclick="sortTable(3)">Vehicle Horse Power <span>*</span></th>
+						<th class="text-center sort" onclick="sortTable(4)">Engine Size <span>*</span></th>
+						<th class="text-center sort" onclick="sortTable(5)">Reg Number <span>*</span></th>
+						<th class="text-center">Edit</th>
+						<th class="text-center">Delete</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="info">
 					{% for info in info %}
 					<tr>
 						<td> {{info.manufacturer_name}} </td>
